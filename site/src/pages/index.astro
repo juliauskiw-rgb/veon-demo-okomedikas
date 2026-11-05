@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import CallBar from "../components/CallBar.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import Doctors from "../components/sections/Doctors.astro";
+import FirstVisit from "../components/sections/FirstVisit.astro";
+import Hero from "../components/sections/Hero.astro";
+import Kids from "../components/sections/Kids.astro";
+import Locations from "../components/sections/Locations.astro";
+import Optics from "../components/sections/Optics.astro";
+import Prices from "../components/sections/Prices.astro";
+import Routes from "../components/sections/Routes.astro";
+---
+<Base
+  lang="uk"
+  title="Офтальмологічна клініка в Черкасах — Окомедікас"
+  description="Обстеження зору, катаракта, глаукома, сітківка, дитячий прийом і оптика в Черкасах. Ціни, лікарі, адреси в шести містах. Телефон (050) 840-00-44."
+  rec="UX-R012,UX-R013,UX-R021"
+>
+  <SiteHeader slot="header" />
+  <Hero />
+  <Routes />
+  <FirstVisit />
+  <Prices />
+  <Doctors />
+  <Kids />
+  <Optics />
+  <Locations />
+  <SiteFooter slot="footer" />
+  <CallBar slot="footer" />
+</Base>

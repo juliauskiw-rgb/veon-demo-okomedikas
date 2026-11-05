@@ -1,0 +1,63 @@
+/* Hallmark · shape: лестница строк от номера, своя структура · genre: modern-minimal · theme: custom · job: book · idea: "Страница набрана как таблица проверки зрения, а верхняя строка — номер 840-00-44" · vibe: "крупно, ясно, честно, один свет"
+ * paper: #07433F · accent: #FFC83D · display: Geologica · body: Onest · hero: жёлтая плита с номером и лестница строк · nav: белая закреплённая, 7 якорей и номер · footer: две строки на стене · imagery: client photos · signature: номер на жёлтой плите и переключатель А / А+
+ * axes: dark/geometric-sans/chromatic-amber · posture: committed · surface: absolute · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V4 · weakest: E, текста много для пожилого читателя; цены и составы раскрываются строками, мельче 18 px ничего нет */
+/* Hallmark · waive 7b · stamp says surface: absolute, contrast pairs pass AA · the concept fixes pure white as the surface and as Geologica text on the wall, chosen for patients who read with weak sight */
+/* Hallmark · waive 23 · stamp says posture: committed · the yellow plate holding the clinic number in Geologica digits is the signature of the first screen, the call is the whole job of this surface */
+/* Hallmark · dismissed F6 · the selector only contains the word prices, this heading is the word Катаракта in Geologica with no figures in it */
+/* Hallmark · dismissed 28a · every photograph sits below the first screen, the hero has no image, so lazy loading is correct and text is the largest paint */
+/* Hallmark · answered F4 · the pressed text size toggle is a state of a control, the only filled primary is the yellow call button */
+/* Hallmark · answered F20 · the row of actions wraps naturally, a call button standing alone after links reads as the end of the line */
+/* Client design tokens: filled ONLY from design/concept.md (veon-concept: colors, fonts). */
+:root {
+  /* Палитра концепции */
+  --color-bg: #FFFFFF;
+  --color-text: #0C2926;
+  --color-accent: #FFC83D;
+  --color-accent-hover: #FFD667;
+  --color-accent-ink: #0C2926;
+  --color-wall: #07433F;
+  --color-haze: #E4F1ED;
+  --color-line: #0F7A69;
+  --font-display: "Geologica Variable", "Geologica Fallback", system-ui, sans-serif;
+  --font-body: "Onest Variable", "Onest Fallback", system-ui, sans-serif;
+  /* Шкала типографики: T0–T3, текст, подпись. Мельче подписи на странице нет. */
+  --t0: min(9.4vw, 8.5rem);
+  --t1: min(9.4vw, 4.25rem);
+  --t2: clamp(1.75rem, 1.35rem + 1.8vw, 3rem);
+  --t3: clamp(1.5rem, 1.4rem + .5vw, 2rem);
+  --text: 1.25rem;
+  --caption: 1.125rem;
+  --nav-size: 1.125rem;
+  /* Ритм кратен 8 */
+  --s1: .5rem;
+  --s2: 1rem;
+  --s3: 1.5rem;
+  --s4: 2rem;
+  --s5: 3rem;
+  --s6: 4rem;
+  --s7: 6rem;
+  --section: 4rem;
+  --space: 1rem;
+  --container: 1360px;
+  --header-h: 64px;
+  --bar-h: 64px;
+  --tap: 44px;
+  --tap-phone: 56px;
+  --btn-h: 52px;
+  --rule: 3px;
+  --radius: 6px;
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+  --dur: 500ms;
+  --dur-short: 200ms;
+  --dur-mid: 240ms;
+}
+@media (min-width: 48rem) {
+  :root { --space: 2.5rem; --section: 8rem; --header-h: 80px; }
+}
+/* «А+»: только T3, текст и подпись; T0–T2 не трогаем, чтобы крупные слова не вылезали за край */
+html[data-text="large"] {
+  --t3: clamp(1.8rem, 1.68rem + .6vw, 2.4rem);
+  --text: 1.5rem;
+  --caption: 1.35rem;
+}

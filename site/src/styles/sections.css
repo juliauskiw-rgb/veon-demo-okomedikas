@@ -1,0 +1,182 @@
+/* Окомедікас: блоки ниже первого экрана. Цвета, шрифты и размеры только через токены (tokens.css). */
+
+/* Общие детали блоков */
+.section { padding-block: var(--section); }
+.haze { background: var(--color-haze); color: var(--color-text); }
+.section h2 { font-size: var(--t1); }
+.section h3 { font-size: var(--t3); }
+.big { display: block; font-family: var(--font-display); font-size: var(--t1); font-weight: 800; line-height: 1.1; white-space: nowrap; }
+.nb { white-space: nowrap; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1) var(--s3); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap-phone); white-space: nowrap; padding: var(--s1) var(--s3); border-radius: var(--radius); background: var(--color-accent); color: var(--color-accent-ink); font-weight: 600; text-decoration: none; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out); }
+.btn:hover { background: var(--color-accent-hover); }
+.btn:active { transform: translateY(1px); }
+main { background: var(--color-bg); }
+
+/* Строка с указкой: жёлтая черта выезжает слева поверх линии */
+.row { position: relative; border-top: var(--rule) solid var(--color-line); }
+.row::before { content: ""; position: absolute; left: 0; right: 0; top: calc(-1 * var(--rule)); height: var(--rule); background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-short) var(--ease-out); }
+.row:hover::before, .row:focus-within::before { transform: scaleX(1); }
+.on-wall .row { border-top-color: var(--color-haze); }
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+
+/* Плюс строки: состояние раскрытия */
+.route > summary, .fold > summary, .city > summary, .home-city > summary { position: relative; display: flex; flex-direction: column; justify-content: center; min-height: var(--tap-phone); padding-right: var(--s5); }
+.route > summary::before, .route > summary::after, .fold > summary::before, .fold > summary::after, .city > summary::before, .city > summary::after, .home-city > summary::before, .home-city > summary::after { content: ""; position: absolute; right: var(--s1); top: 50%; width: var(--s3); height: var(--rule); margin-top: -1.5px; background: currentColor; transition: transform var(--dur-mid) var(--ease-out); }
+.route > summary::after, .fold > summary::after, .city > summary::after, .home-city > summary::after { transform: rotate(90deg); }
+details[open] > summary::after { transform: rotate(0deg); }
+.route > summary:hover h3, .fold > summary:hover h3, .city > summary:hover h3 { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: .15em; }
+.js details[open] > .unfold { animation: unfold var(--dur-mid) var(--ease-out); }
+@keyframes unfold { from { opacity: 0; transform: translateY(var(--s1)); } to { opacity: 1; transform: none; } }
+
+/* Маршруты */
+.routes__grid { display: grid; gap: var(--s4); }
+.route > summary { padding-block: var(--s3); }
+.routes .route h3 { font-size: var(--t2); color: var(--color-wall); }
+.route__sub { font-size: var(--text); font-weight: 600; }
+.route__body { display: grid; gap: var(--s2); max-width: 62ch; padding-bottom: var(--s4); }
+.routes__list { min-width: 0; }
+.routes__also { padding-top: var(--s3); border-top: var(--rule) solid var(--color-line); }
+
+/* Первый визит */
+.first-visit { padding-top: 0; }
+.fv { display: grid; gap: var(--s4); }
+.fv__photo img { width: 100%; }
+.fv__text { display: grid; gap: var(--s2); padding-inline: var(--space); min-width: 0; }
+.fv__text h2 { font-size: var(--t3); line-height: 1.2; }
+.fv__what { display: block; margin-top: var(--s1); }
+.fv__perks { display: grid; gap: var(--s1); padding-bottom: var(--s2); }
+.fold { border-top: var(--rule) solid var(--color-line); }
+.ticks { display: grid; gap: var(--s1); padding-bottom: var(--s2); }
+.ticks li { position: relative; padding-left: var(--s3); }
+.ticks li::before { content: ""; position: absolute; left: 0; top: .72em; width: var(--s2); height: var(--rule); background: var(--color-line); }
+
+/* Цены */
+.prices__grid { display: grid; gap: var(--s5); }
+.section .prices__topic { margin-bottom: var(--s3); font-size: var(--t2); color: var(--color-wall); }
+.pair { display: grid; gap: var(--s3); }
+.prices__not-sum { margin-block: var(--s3); font-weight: 600; }
+.lines { display: grid; }
+.lines > div { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3); padding-block: var(--s1); border-top: 1px solid var(--color-line); }
+.lines dd { font-family: var(--font-display); font-weight: 800; white-space: nowrap; }
+.lines dt { min-width: 0; }
+.prices__side { display: grid; gap: var(--s3); align-content: start; }
+.prices__foot { display: grid; gap: var(--s3); }
+.note { padding-left: var(--s2); border-left: var(--rule) solid var(--color-accent); }
+
+/* Лікарі */
+.doctors__head { margin-bottom: var(--s5); color: var(--color-bg); }
+.doctors__list { display: grid; gap: var(--s4); }
+.doctor { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: var(--s2); align-items: start; }
+.doctor img { width: 100%; border-radius: var(--radius); }
+.doctor__text { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s1); min-width: 0; }
+@media (max-width: 23rem) { .doctor { grid-template-columns: minmax(0, 1fr); } .doctor img { width: 112px; } }
+@media (max-width: 30rem) { html[data-text="large"] .doctor { grid-template-columns: minmax(0, 1fr); } html[data-text="large"] .doctor img { width: 112px; } }
+.claim { margin-block: var(--s6) var(--s3); font-family: var(--font-display); font-size: var(--t2); font-weight: 800; line-height: 1.2; }
+
+/* Дітям */
+.kids__grid { display: grid; gap: var(--s5); }
+.kids__head, .kids__more { display: grid; gap: var(--s2); align-content: start; min-width: 0; }
+.kids__head h2 { color: var(--color-wall); }
+.kids__more h3:not(:first-child) { margin-top: var(--s2); }
+
+/* Оптика: весь блок цвета света */
+.optics { --focus: var(--color-accent-ink); background: var(--color-accent); color: var(--color-accent-ink); }
+.optics__line { display: block; }
+.optics__num { display: inline-block; font-size: var(--t0); line-height: 1.1; white-space: nowrap; text-decoration: none; color: var(--color-accent-ink); }
+.optics__num:hover { text-decoration: underline; text-decoration-thickness: 6px; }
+.optics__grid { display: grid; gap: var(--s3); margin-top: var(--s4); }
+.optics__name { font-size: var(--t3); font-weight: 600; line-height: 1.25; }
+.optics .lines > div { border-top-color: var(--color-accent-ink); }
+.optics__foot { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); align-items: center; }
+
+/* Адреси: финальная таблица номеров */
+.home-city > summary { min-height: 0; }
+.home-city h2 { color: var(--color-bg); }
+.home-city__grid { display: grid; gap: var(--s3); margin-top: var(--s3); }
+.home-city img { width: 100%; max-width: 718px; border-radius: var(--radius); }
+.home-city__text { display: grid; gap: var(--s2); align-content: start; min-width: 0; }
+.home-city__addr { font-family: var(--font-display); font-size: var(--t3); font-weight: 800; line-height: 1.2; }
+.home-city__tels { display: flex; flex-wrap: wrap; gap: 0 var(--s4); }
+.tel--big { font-size: var(--t3); }
+.cities { margin-top: var(--s5); }
+.city > summary { padding-block: var(--s2); }
+.city h3 { font-size: var(--t2); color: var(--color-bg); }
+.city__body { display: grid; gap: var(--s1); padding-bottom: var(--s3); }
+.city__addr { font-weight: 600; }
+.city__tels { display: flex; flex-wrap: wrap; gap: 0 var(--s3); }
+.locations__note { margin-top: var(--s4); padding-top: var(--s3); border-top: var(--rule) solid var(--color-haze); }
+
+/* Футер */
+.site-footer { padding-block: 0 var(--s5); }
+.site-footer__row { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--s3); }
+.site-footer .link { color: var(--color-bg); }
+.site-footer .future-link__note, .cities .future-link__note, .doctors .future-link__note { top: auto; bottom: calc(100% + var(--s1)); background: var(--color-accent); color: var(--color-accent-ink); }
+
+/* Нижняя панель: только телефон */
+.call-bar { --focus: var(--color-wall); position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); height: var(--bar-h); background: var(--color-bg); transition: transform var(--dur-mid) var(--ease-out), visibility 0s linear 0s; }
+.call-bar a { display: flex; align-items: center; justify-content: center; font-weight: 600; text-decoration: none; }
+.call-bar__call { background: var(--color-accent); color: var(--color-accent-ink); font-family: var(--font-display); }
+.call-bar__where { background: var(--color-bg); color: var(--color-wall); }
+.js .call-bar:not(.is-on) { transform: translateY(100%); visibility: hidden; transition: transform var(--dur-mid) var(--ease-out), visibility 0s linear var(--dur-mid); }
+body { padding-bottom: var(--bar-h); }
+
+/* Проявление верхней строки: цены катаракты и номер оптики */
+.js [data-reveal="line"]:not(.is-visible) { opacity: 0; transform: none; }
+[data-reveal="line"] { transition: opacity var(--dur) var(--ease-out); }
+
+@media (min-width: 48rem) {
+  /* Наблюдаем обёртку, обрезаем содержимое: полностью обрезанный элемент IntersectionObserver не видит */
+  .js [data-reveal="line"]:not(.is-visible) { opacity: 1; }
+  .js [data-reveal="line"]:not(.is-visible) .line-in { clip-path: inset(0 100% 0 0); }
+  .line-in { clip-path: inset(0 0 0 0); transition: clip-path var(--dur) var(--ease-out); }
+  .call-bar { display: none; }
+  .btn { min-height: var(--btn-h); }
+  body { padding-bottom: 0; }
+  /* Две позиции разведены линией: цифры не читаются как одна фраза */
+  .pair { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--s3); }
+  .pair .big { font-size: min(var(--t1), 7.4vw); }
+  .pair > div + div { padding-left: var(--s3); border-left: var(--rule) solid var(--color-line); }
+  .doctors__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .doctor { grid-template-columns: minmax(0, 1fr); }
+  .doctor img { max-width: 240px; }
+  .optics__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4) var(--s6); }
+  .optics__foot { grid-column: 1 / -1; }
+  .kids__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s6); }
+}
+
+@media (min-width: 64rem) {
+  .routes__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s6); }
+  .routes__grid > h2 { position: sticky; top: calc(var(--header-h) + var(--s4)); align-self: start; font-size: min(var(--t1), 4.4vw); }
+  .first-visit { padding-top: var(--section); }
+  .fv { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s6); width: calc(50% + var(--container) / 2); max-width: calc(100% - var(--space)); }
+  .fv__photo { position: sticky; top: calc(var(--header-h) + var(--s4)); align-self: start; }
+  .fv__text { padding-inline: 0; }
+  .prices__foot { grid-column: 1 / -1; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s6); align-items: center; }
+  /* На широком экране раскрывающиеся группы всегда открыты */
+  [data-phone] > summary { padding-right: 0; cursor: text; pointer-events: none; }
+  [data-phone] > summary::before, [data-phone] > summary::after { display: none; }
+  .home-city__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s6); }
+  .city { padding-left: 30%; }
+  .city h3 { font-size: min(var(--t2), 3.1vw); }
+  .city > summary { position: absolute; left: 0; top: 0; }
+  .city__body { grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); gap: var(--s4); padding-block: var(--s2); min-height: var(--s7); }
+  .city__tels { flex-direction: column; }
+}
+@media (min-width: 73.75rem) {
+  .pair .big { font-size: min(var(--t1), 4.4vw); }
+  .doctors__list { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; }
+  .doctor img { max-width: none; }
+  .doctor h3 { font-size: min(var(--t3), 1.75rem); }
+  .doctor:nth-child(2) { margin-top: var(--s5); }
+  .doctor:nth-child(3) { margin-top: var(--s7); }
+  .doctor:nth-child(4) { margin-top: calc(var(--s7) + var(--s5)); }
+  .prices__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s5) var(--s6); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js details[open] > .unfold { animation: none; }
+  .js [data-reveal="line"]:not(.is-visible) { opacity: 1; }
+  .js [data-reveal="line"]:not(.is-visible) .line-in, .line-in { clip-path: none; transition: none; }
+  .row::before, .nav a::after { transition: none; }
+}

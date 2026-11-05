@@ -1,0 +1,26 @@
+---
+import FutureLink from "../FutureLink.astro";
+import Section from "../Section.astro";
+import { CLINIC, SOON } from "../../data/contacts";
+---
+<Section id="kids" rec="UX-R024" class="kids section haze">
+  <div class="kids__grid container">
+    <div class="kids__head">
+      <h2>Від 5 до 18 років</h2>
+      <p class="kids__lead">Комплексне обстеження з консультацією дитячого лікаря-офтальмолога: <strong class="nb">1 000 ₴</strong>. Приймає дитячий офтальмолог Харенко Інна Ігорівна.</p>
+      <p class="actions">
+        <a class="btn" href={CLINIC.href}>{CLINIC.label}</a>
+      </p>
+    </div>
+    <div class="kids__more">
+      <h3>Що перевіряють</h3>
+      <p>Візометрія, кольоротести, авторефрактометрія, тонометрія, біомікроскопія, резерви акомодації, клінічна рефракція в умовах мідріазу, огляд очного дна, біометрія очного яблука, консультаційний висновок лікаря.</p>
+      <h3>З чим звертаються</h3>
+      <p>Астигматизм, короткозорість, далекозорість, амбліопія. У відділенні є апаратне лікування та електронні оклюзійні окуляри VIDI Smart Glasses. Що підходить дитині, вирішує лікар.</p>
+      <p class="actions">
+        <FutureLink note={SOON}>Дитяче відділення</FutureLink>
+        <FutureLink note={SOON}>VIDI Smart Glasses</FutureLink>
+      </p>
+    </div>
+  </div>
+</Section>

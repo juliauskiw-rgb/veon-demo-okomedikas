@@ -1,0 +1,34 @@
+---
+import FutureLink from "./FutureLink.astro";
+import Tel from "./Tel.astro";
+import TextSize from "./TextSize.astro";
+import { CLINIC, CLINIC_2, NAV, SOON } from "../data/contacts";
+---
+<header class="site-header" data-rec="UX-R002,UX-R018">
+  <div class="site-header__row container">
+    <a class="wordmark" href="#top"><span class="visually-hidden">Окомедікас, на початок сторінки</span><span aria-hidden="true"><b>ОКО</b>МЕДІКАС</span></a>
+    <nav class="nav" aria-label="Розділи сторінки">
+      <ul>
+        {NAV.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+    <TextSize class="textsize--header" />
+    <a class="header-tel" href={CLINIC.href}>
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"></path></svg>
+      <span class="header-tel__num"><span class="visually-hidden">Подзвонити в клініку </span>{CLINIC.label}</span>
+    </a>
+    <details class="menu" data-menu>
+      <summary>Меню</summary>
+      <div class="menu__panel">
+        <nav aria-label="Меню">
+          <ul>
+            {NAV.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          </ul>
+        </nav>
+        <TextSize />
+        <p class="menu__tel"><Tel phone={CLINIC} /> <Tel phone={CLINIC_2} /></p>
+        <p class="menu__lang"><FutureLink note={SOON}>English</FutureLink> <FutureLink note={SOON}>Русский</FutureLink></p>
+      </div>
+    </details>
+  </div>
+</header>

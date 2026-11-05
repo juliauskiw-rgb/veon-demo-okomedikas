@@ -1,0 +1,74 @@
+---
+import FutureLink from "../FutureLink.astro";
+import Section from "../Section.astro";
+import Tel from "../Tel.astro";
+import { CLINIC, SOON } from "../../data/contacts";
+
+interface Route { title: string; sub?: string; text: string[]; anchors: { href: string; label: string }[]; page: string; }
+
+const routes: Route[] = [
+  {
+    title: "Обстеження зору",
+    text: ["Консультація та діагностика, зокрема ОКТ і ОКТ-ангіографія. З обстеження починається майже кожен маршрут."],
+    anchors: [{ href: "#first-visit", label: "Склад і ціна" }],
+    page: "Консультація та діагностика",
+  },
+  {
+    title: "Катаракта",
+    text: ["Факоемульсифікація з імплантацією ІОЛ. Операції амбулаторні, без госпіталізації.", "Чи потрібна операція і в якому порядку, вирішує лікар після обстеження."],
+    anchors: [{ href: "#prices", label: "Ціни" }, { href: "#doctors", label: "Лікарі" }],
+    page: "Лікування катаракти",
+  },
+  {
+    title: "Глаукома",
+    text: ["Антиглаукомні операції, ревізія фільтраційної подушки, лазерна трабекулопластика."],
+    anchors: [{ href: "#doctors", label: "Хто приймає" }],
+    page: "Лікування глаукоми",
+  },
+  {
+    title: "Сітківка і склоподібне тіло",
+    text: ["Закрита вітректомія, видалення силікону, інтравітреальні ін'єкції."],
+    anchors: [{ href: "#doctors", label: "Хто приймає" }],
+    page: "Вітреоретинальна хірургія",
+  },
+  {
+    title: "Лазерні процедури",
+    sub: "Не лазерна корекція зору",
+    text: ["Панретинальна коагуляція сітківки, лазерна трабекулопластика, дисцизія вторинної катаракти, вітреолізис."],
+    anchors: [{ href: "#doctors", label: "Хто приймає" }],
+    page: "Лазерні методи",
+  },
+  {
+    title: "Інші операції",
+    text: ["Блефаропластика, реконструкція повік, хірургія косоокості."],
+    anchors: [{ href: "#first-visit", label: "Перший візит" }],
+    page: "Інші операції",
+  },
+];
+---
+<Section id="routes" rec="UX-R003,UX-R020" class="routes section">
+  <div class="routes__grid container">
+    <h2>З чим ви звертаєтесь?</h2>
+    <div class="routes__list">
+      {routes.map((route) => (
+        <details class="route row">
+          <summary>
+            <h3>{route.title}</h3>
+            {route.sub && <span class="route__sub">{route.sub}</span>}
+          </summary>
+          <div class="route__body unfold">
+            {route.text.map((line) => <p>{line}</p>)}
+            <p class="actions">
+              {route.anchors.map((a) => <a class="link" href={a.href}>{a.label}</a>)}
+              <FutureLink note={SOON}>{route.page}</FutureLink>
+              <a class="btn" href={CLINIC.href}>Подзвонити</a>
+            </p>
+          </div>
+        </details>
+      ))}
+      <p class="routes__also">
+        Також приймають: отоларинголог і ендокринолог, <Tel phone={CLINIC} />.
+      </p>
+    </div>
+  </div>
+</Section>

@@ -1,0 +1,49 @@
+---
+import FutureLink from "../FutureLink.astro";
+import Section from "../Section.astro";
+import { CLINIC, SOON } from "../../data/contacts";
+
+const steps = [
+  "Візометрія без корекції і з корекцією",
+  "Авторефрактометрія",
+  "Пневмотонометрія",
+  "Оптична й ультразвукова біометрія",
+  "Біомікроскопія переднього відрізку ока",
+  "Огляд очного дна лінзою Гольдмана",
+  "Встановлення діагнозу і призначення лікування",
+];
+---
+<Section id="first-visit" rec="UX-R006" class="first-visit section haze">
+  <div class="fv">
+    <figure class="fv__photo">
+      <img
+        src="/img/first-visit-788.webp"
+        srcset="/img/first-visit-480.webp 480w, /img/first-visit-788.webp 788w"
+        sizes="(min-width: 64rem) 50vw, 100vw"
+        width="788" height="524" loading="lazy" decoding="async"
+        alt="Лікарка оглядає пацієнтку за щілинною лампою"
+      />
+    </figure>
+    <div class="fv__text">
+      <h2><span class="big">1 000 ₴</span> <span class="fv__what">Комплексна діагностика і консультація офтальмолога</span></h2>
+      <p>Обстеження займає близько години.</p>
+      <p><strong>600 ₴</strong> для пенсіонерів, учасників бойових дій та осіб з інвалідністю.</p>
+      <details class="fold" data-phone="closed" open>
+        <summary><h3>Що входить</h3></summary>
+        <ul class="ticks unfold">
+          {steps.map((step) => <li>{step}</li>)}
+        </ul>
+      </details>
+      <details class="fold" data-phone="closed" open>
+        <summary><h3>Пільги</h3></summary>
+        <div class="unfold fv__perks">
+          <p>Для військовослужбовців і переселенців діють окремі умови. Які саме, уточнюйте за телефоном перед візитом.</p>
+        </div>
+      </details>
+      <p class="actions">
+        <a class="btn" href={CLINIC.href}>{CLINIC.label}</a>
+        <FutureLink note={SOON}>Консультація та діагностика</FutureLink>
+      </p>
+    </div>
+  </div>
+</Section>

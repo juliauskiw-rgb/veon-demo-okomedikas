@@ -1,0 +1,58 @@
+---
+import FutureLink from "../FutureLink.astro";
+import Section from "../Section.astro";
+import Tel from "../Tel.astro";
+import { CITIES, CLINIC, CLINIC_2, EMAIL, MAP_URL, OPTICS, SOON } from "../../data/contacts";
+---
+<Section id="locations" rec="UX-R004" class="locations section on-wall">
+  <div class="container">
+    <details class="home-city" data-phone="open" open>
+      <summary><h2>Черкаси</h2></summary>
+      <div class="home-city__grid unfold">
+        <figure>
+          <img
+            src="/img/building-718.webp"
+            srcset="/img/building-480.webp 480w, /img/building-718.webp 718w"
+            sizes="(min-width: 64rem) 50vw, 100vw"
+            width="718" height="478" loading="lazy" decoding="async"
+            alt="Будівля клініки в Черкасах, на фасаді банер з номерами телефонів"
+          />
+        </figure>
+        <div class="home-city__text">
+          <p class="home-city__addr">м. Черкаси, проспект Перемоги, 16</p>
+          <p>Пн–Пт, до 17:00</p>
+          <p>Зупинка «Парк Перемоги». Автобус: 5, 6, 13, 16, 20, 22, 25, 29, 36, 115. Тролейбус: 8, 14.</p>
+          <p class="home-city__tels">
+            <Tel phone={CLINIC} class="tel--big" />
+            <Tel phone={CLINIC_2} class="tel--big" />
+          </p>
+          <p>Оптика: <Tel phone={OPTICS} /></p>
+          <p class="actions">
+            <a class="link" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            <a class="link" href={MAP_URL} rel="noopener">Відкрити на карті</a>
+          </p>
+        </div>
+      </div>
+    </details>
+    <ul class="cities">
+      {CITIES.map((city) => (
+        <li>
+          <details class="city row" data-phone="closed" open>
+            <summary><h3>{city.name}</h3></summary>
+            <div class="city__body unfold">
+              <div>
+                <p class="city__addr">{city.address}</p>
+                <p>{city.place}</p>
+                <FutureLink note={SOON}>Сторінка кабінету</FutureLink>
+              </div>
+              <p class="city__tels">
+                {city.phones.map((p) => <Tel phone={p} />)}
+              </p>
+            </div>
+          </details>
+        </li>
+      ))}
+    </ul>
+    <p class="locations__note">Перший рівень акредитації</p>
+  </div>
+</Section>

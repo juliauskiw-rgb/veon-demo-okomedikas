@@ -1,0 +1,52 @@
+---
+import FutureLink from "../FutureLink.astro";
+import Section from "../Section.astro";
+import Tel from "../Tel.astro";
+import { CLINIC, SOON } from "../../data/contacts";
+---
+<Section id="prices" rec="UX-R006,UX-R011" class="prices section">
+  <div class="prices__grid container">
+    <div class="prices__main">
+      <h2 class="prices__topic"><span class="visually-hidden">Ціни: </span>Катаракта</h2>
+      <div class="pair" data-reveal="line">
+        <div>
+          <p class="big line-in">8 200 ₴</p>
+          <p>Факоемульсифікація з пакетом медикаментів</p>
+        </div>
+        <div>
+          <p class="big line-in">від 8 600 ₴</p>
+          <p>Інтраокулярна лінза (ІОЛ)</p>
+        </div>
+      </div>
+      <p class="prices__not-sum">Окремі позиції прайсу, не підсумок. Що входить у вартість, уточнюйте за телефоном.</p>
+      <dl class="lines">
+        <div><dt>Доплата за ускладнену катаракту</dt><dd>5 000 ₴</dd></div>
+        <div><dt>«Анестезія +»</dt><dd>1 000 ₴</dd></div>
+      </dl>
+    </div>
+    <div class="prices__side">
+      <details class="fold" data-phone="closed" open>
+        <summary><h3>Діагностика</h3></summary>
+        <dl class="lines unfold">
+          <div><dt>Комплексна діагностика і консультація офтальмолога</dt><dd>1 000 ₴</dd></div>
+          <div><dt>Для пенсіонерів, учасників бойових дій та осіб з інвалідністю</dt><dd>600 ₴</dd></div>
+          <div><dt>Дитячий огляд</dt><dd>1 000 ₴</dd></div>
+        </dl>
+      </details>
+      <details class="fold" data-phone="closed" open data-rec="UX-R011">
+        <summary><h3>Підбір окулярів</h3></summary>
+        <dl class="lines unfold">
+          <div><dt>Підбір окулярів або контактних лінз</dt><dd>300 ₴</dd></div>
+          <div><dt>При замовленні оптики в клініці</dt><dd>0 ₴</dd></div>
+        </dl>
+      </details>
+    </div>
+    <div class="prices__foot">
+      <p class="note">Ціни наведено для ознайомлення, вони можуть відрізнятися. Уточнюйте за телефоном <Tel phone={CLINIC} />.</p>
+      <p class="actions">
+        <a class="btn" href={CLINIC.href}>Уточнити вартість</a>
+        <FutureLink note={SOON}>Повний прайс</FutureLink>
+      </p>
+    </div>
+  </div>
+</Section>

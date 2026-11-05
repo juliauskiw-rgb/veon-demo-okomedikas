@@ -1,0 +1,23 @@
+---
+import FutureLink from "../FutureLink.astro";
+import Section from "../Section.astro";
+import { OPTICS, SOON } from "../../data/contacts";
+---
+<Section id="optics" rec="UX-R015" class="optics section">
+  <div class="container">
+    <h2><span class="visually-hidden">Оптика: </span><span class="optics__line" data-reveal="line"><a class="optics__num line-in" href={OPTICS.href}>{OPTICS.label}</a></span></h2>
+    <div class="optics__grid">
+      <p class="optics__name">Оптика: окремий номер для окулярів і контактних лінз</p>
+      <dl class="lines">
+        <div><dt>Підбір окулярів або контактних лінз</dt><dd>300 ₴</dd></div>
+        <div><dt>При замовленні оптики в клініці</dt><dd>0 ₴</dd></div>
+        <div><dt>Лінзи</dt><dd>від 40 ₴</dd></div>
+        <div><dt>Оправи</dt><dd>від 53 ₴</dd></div>
+      </dl>
+      <p class="optics__foot">
+        <span>Пн–Пт, до 17:00</span>
+        <FutureLink note={SOON}>Сторінка оптики</FutureLink>
+      </p>
+    </div>
+  </div>
+</Section>

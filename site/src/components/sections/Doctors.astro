@@ -1,0 +1,41 @@
+---
+import FutureLink from "../FutureLink.astro";
+import Section from "../Section.astro";
+import Tel from "../Tel.astro";
+import { CLINIC, SOON } from "../../data/contacts";
+
+interface Doctor { id: string; name: string; profile: string; visit?: string; rec?: string; }
+
+const doctors: Doctor[] = [
+  { id: "shatkun", name: "Шаткун Андрій Анатолійович", profile: "Лікар-офтальмолог вищої категорії, офтальмохірург.", visit: "Консультації вітреоретинального хірурга за попереднім записом." },
+  { id: "pecheriy", name: "Печерій Вадим Геннадійович", profile: "Лікар-офтальмолог, ретинолог, лазерний хірург, глаукоматолог.", visit: "Понеділок і вівторок: консультативний прийом, лазерне лікування глаукоми і сітківки.", rec: "UX-R022" },
+  { id: "zimenkova", name: "Зіменкова Наталія Олександрівна", profile: "Лікар-офтальмолог, дитячий офтальмолог, ретинолог." },
+  { id: "kharenko", name: "Харенко Інна Ігорівна", profile: "Дитячий офтальмолог." },
+];
+---
+<Section id="doctors" rec="UX-R014" class="doctors section on-wall">
+  <div class="container">
+    <h2 class="doctors__head">Шаткун, Печерій, Зіменкова, Харенко</h2>
+    <ul class="doctors__list">
+      {doctors.map((d) => (
+        <li class="doctor">
+          <img
+            src={`/img/doctor-${d.id}-480.webp`}
+            srcset={`/img/doctor-${d.id}-240.webp 240w, /img/doctor-${d.id}-480.webp 480w`}
+            sizes="(min-width: 73.75rem) 25vw, (min-width: 48rem) 240px, 112px"
+            width="480" height="600" loading="lazy" decoding="async"
+            alt={`Портрет: ${d.name}`}
+          />
+          <div class="doctor__text">
+            <h3>{d.name}</h3>
+            <p>{d.profile}</p>
+            {d.visit && <p data-rec={d.rec}>{d.visit}</p>}
+            <Tel phone={CLINIC} />
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="claim" data-rec="UX-R025">В клініці обстежено <span class="nb">105 166</span> пацієнтів і прооперовано <span class="nb">8 043 —</span> <span class="nb">за даними клініки</span></p>
+    <p class="actions"><FutureLink note={SOON}>Усі лікарі</FutureLink></p>
+  </div>
+</Section>

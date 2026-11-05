@@ -1,0 +1,8 @@
+---
+// Нижняя панель на телефоне: появляется, когда плита с номером ушла с экрана (src/scripts/site.ts).
+import { CLINIC } from "../data/contacts";
+---
+<div class="call-bar" data-call-bar data-rec="UX-R002">
+  <a class="call-bar__call" href={CLINIC.href}>Подзвонити</a>
+  <a class="call-bar__where" href="#locations">Адреси</a>
+</div>

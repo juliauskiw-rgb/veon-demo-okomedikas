@@ -1,0 +1,9 @@
+---
+// Переключатель размера текста А / А+. Логика — src/scripts/site.ts, значение — в localStorage.
+interface Props { class?: string; }
+const { class: cls } = Astro.props;
+---
+<div class:list={["textsize", cls]} role="group" aria-label="Розмір тексту">
+  <button type="button" data-text-size="normal" aria-pressed="true">А<span class="visually-hidden">, звичайний текст</span></button>
+  <button type="button" data-text-size="large" aria-pressed="false">А+<span class="visually-hidden">, збільшений текст</span></button>
+</div>

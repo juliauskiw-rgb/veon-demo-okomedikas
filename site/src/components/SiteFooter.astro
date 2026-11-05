@@ -1,0 +1,20 @@
+---
+import FutureLink from "./FutureLink.astro";
+import { EMAIL, INSTAGRAM, SOON } from "../data/contacts";
+---
+<footer class="site-footer on-wall">
+  <div class="container">
+    <p class="site-footer__row">
+      <span>ТОВ «Окомедікас»</span>
+      <a class="link" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      <a class="link" href={INSTAGRAM} rel="noopener">Instagram</a>
+    </p>
+    <p class="site-footer__row">
+      <FutureLink note={SOON}>Про нас</FutureLink>
+      <FutureLink note={SOON}>Блог</FutureLink>
+      <FutureLink note={SOON}>Політика конфіденційності</FutureLink>
+      <FutureLink note={SOON}>English</FutureLink>
+      <FutureLink note={SOON}>Русский</FutureLink>
+    </p>
+  </div>
+</footer>

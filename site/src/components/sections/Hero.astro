@@ -1,0 +1,20 @@
+---
+import Section from "../Section.astro";
+import Tel from "../Tel.astro";
+import { CLINIC, CLINIC_2 } from "../../data/contacts";
+---
+<Section id="hero" rec="UX-R002,UX-R019" class="hero on-wall">
+  <div class="hero__stack container">
+    <h1 data-rec="SEO-R003">Офтальмологічна клініка в Черкасах</h1>
+    <p class="hero__dirs">Катаракта, глаукома, сітківка, діти, оптика</p>
+    <p class="hero__where"><span class="nb">проспект Перемоги, 16.</span> <span class="nb">Пн–Пт, до 17:00</span></p>
+    <a class="plate" href={CLINIC.href} data-plate>
+      <span class="plate__label">Подзвонити в клініку</span>
+      <span class="plate__num">{CLINIC.label}</span>
+    </a>
+    <p class="hero__more">
+      <Tel phone={CLINIC_2} />
+      <a class="link" href="#routes">З чим ви звертаєтесь?</a>
+    </p>
+  </div>
+</Section>

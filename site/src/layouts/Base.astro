@@ -1,0 +1,43 @@
+---
+import "../styles/tokens.css";
+import "../styles/fonts.css";
+import "../styles/global.css";
+import "../styles/site.css";
+import "../styles/sections.css";
+import geologica from "@fontsource-variable/geologica/files/geologica-cyrillic-wght-normal.woff2?url";
+import geologicaDigits from "@fontsource-variable/geologica/files/geologica-latin-wght-normal.woff2?url";
+import onest from "@fontsource-variable/onest/files/onest-cyrillic-wght-normal.woff2?url";
+import onestDigits from "@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url";
+
+interface Props { lang: string; title: string; description: string; canonical?: string; rec?: string; }
+const { lang, title, description, canonical, rec } = Astro.props;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add("js");try{if(localStorage.getItem("okomedikas-text")==="large")document.documentElement.dataset.text="large"}catch(e){}</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href={geologica} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={geologicaDigits} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={onest} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={onestDigits} as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="robots" content="noindex" />
+    <style is:global>html, body { overflow-x: clip; }</style>
+    <slot name="head" />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">{lang.startsWith("uk") ? "До змісту" : lang.startsWith("ru") ? "К содержанию" : "Skip to content"}</a>
+    <slot name="header" />
+    <main id="main" data-rec={rec}><slot /></main>
+    <slot name="footer" />
+    <script src="../scripts/reveal.ts"></script>
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

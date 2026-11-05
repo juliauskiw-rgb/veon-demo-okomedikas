@@ -1,0 +1,7 @@
+---
+// Номер телефона: всегда текст и всегда ссылка tel:.
+import type { Phone } from "../data/contacts";
+interface Props { phone: Phone; class?: string; }
+const { phone, class: cls } = Astro.props;
+---
+<a class:list={["tel", cls]} href={phone.href}>{phone.label}</a>
