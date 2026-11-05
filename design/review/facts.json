@@ -1,6 +1,6 @@
 {
-  "start_url": "http://127.0.0.1:4390/",
-  "captured_at": "2026-11-05T12:20:27.508Z",
+  "start_url": "http://127.0.0.1:4390/veon-demo-okomedikas/",
+  "captured_at": "2026-11-05T13:09:50.851Z",
   "browser": "156.0.8078.80",
   "site": {
     "/robots.txt": {
@@ -23,12 +23,12 @@
   },
   "pages": [
     {
-      "url": "http://127.0.0.1:4390/",
-      "slug": "home",
+      "url": "http://127.0.0.1:4390/veon-demo-okomedikas/",
+      "slug": "veon-demo-okomedikas",
       "desktop": {
         "status": 200,
-        "final_url": "http://127.0.0.1:4390/",
-        "load_ms_approx": 1566,
+        "final_url": "http://127.0.0.1:4390/veon-demo-okomedikas/",
+        "load_ms_approx": 1576,
         "console_errors": [],
         "title": "Офтальмологічна клініка в Черкасах — Окомедікас",
         "description": "Обстеження зору, катаракта, глаукома, сітківка, дитячий прийом і оптика в Черкасах. Ціни, лікарі, адреси в шести містах. Телефон (050) 840-00-44.",
@@ -48,7 +48,7 @@
           "image": false
         },
         "jsonld_types": [],
-        "images": 6,
+        "images": 7,
         "images_without_alt": 0,
         "forms": 0,
         "tel_links": 33,
@@ -58,15 +58,13 @@
         "horizontal_overflow_px": 0,
         "trackers": [],
         "screens": {
-          "fold": "screens\\home-desktop-fold.png",
-          "full": "screens\\home-desktop-full.png",
+          "fold": "screens\\veon-demo-okomedikas-desktop-fold.png",
+          "full": "screens\\veon-demo-okomedikas-desktop-full.png",
           "sections": [
-            "screens\\home-desktop-s01.png",
-            "screens\\home-desktop-s02.png",
-            "screens\\home-desktop-s03.png",
-            "screens\\home-desktop-s04.png",
-            "screens\\home-desktop-s05.png",
-            "screens\\home-desktop-s06.png"
+            "screens\\veon-demo-okomedikas-desktop-s01.png",
+            "screens\\veon-demo-okomedikas-desktop-s02.png",
+            "screens\\veon-demo-okomedikas-desktop-s03.png",
+            "screens\\veon-demo-okomedikas-desktop-s04.png"
           ],
           "page_height_px": 8324,
           "full_cropped": false
@@ -74,8 +72,8 @@
       },
       "mobile": {
         "status": 200,
-        "final_url": "http://127.0.0.1:4390/",
-        "load_ms_approx": 1564,
+        "final_url": "http://127.0.0.1:4390/veon-demo-okomedikas/",
+        "load_ms_approx": 1563,
         "console_errors": [],
         "title": "Офтальмологічна клініка в Черкасах — Окомедікас",
         "description": "Обстеження зору, катаракта, глаукома, сітківка, дитячий прийом і оптика в Черкасах. Ціни, лікарі, адреси в шести містах. Телефон (050) 840-00-44.",
@@ -95,7 +93,7 @@
           "image": false
         },
         "jsonld_types": [],
-        "images": 6,
+        "images": 7,
         "images_without_alt": 0,
         "forms": 0,
         "tel_links": 33,
@@ -104,17 +102,15 @@
         "words": 461,
         "horizontal_overflow_px": 0,
         "screens": {
-          "fold": "screens\\home-mobile-fold.png",
-          "full": "screens\\home-mobile-full.png",
+          "fold": "screens\\veon-demo-okomedikas-mobile-fold.png",
+          "full": "screens\\veon-demo-okomedikas-mobile-full.png",
           "sections": [
-            "screens\\home-mobile-s01.png",
-            "screens\\home-mobile-s02.png",
-            "screens\\home-mobile-s03.png",
-            "screens\\home-mobile-s04.png",
-            "screens\\home-mobile-s05.png",
-            "screens\\home-mobile-s06.png"
+            "screens\\veon-demo-okomedikas-mobile-s01.png",
+            "screens\\veon-demo-okomedikas-mobile-s02.png",
+            "screens\\veon-demo-okomedikas-mobile-s03.png",
+            "screens\\veon-demo-okomedikas-mobile-s04.png"
           ],
-          "page_height_px": 8689,
+          "page_height_px": 8931,
           "full_cropped": false
         }
       }
