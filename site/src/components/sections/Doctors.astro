@@ -20,8 +20,8 @@ const doctors: Doctor[] = [
       {doctors.map((d) => (
         <li class="doctor">
           <img
-            src={`/img/doctor-${d.id}-480.webp`}
-            srcset={`/img/doctor-${d.id}-240.webp 240w, /img/doctor-${d.id}-480.webp 480w`}
+            src={`img/doctor-${d.id}-480.webp`}
+            srcset={`img/doctor-${d.id}-240.webp 240w, img/doctor-${d.id}-480.webp 480w`}
             sizes="(min-width: 73.75rem) 25vw, (min-width: 48rem) 240px, 112px"
             width="480" height="600" loading="lazy" decoding="async"
             alt={`Портрет: ${d.name}`}
